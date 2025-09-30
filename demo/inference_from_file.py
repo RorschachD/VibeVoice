@@ -419,7 +419,18 @@ def main():
         output_path=output_path,
     )
     print(f"Saved output to {output_path}")
+
+    import shutil
+    # !Hard coded!
+    gdrive_path = '/content/drive/My Drive/TTS'
     
+    # Define the full destination path for the file
+    destination_path = os.path.join(gdrive_path, os.path.basename(output_path))
+    
+    # Copy the file to Google Drive
+    shutil.copy(output_path, destination_path)
+    print(f"Saved output to {destination_path}")
+
     # Print summary
     print("\n" + "="*50)
     print("GENERATION SUMMARY")
